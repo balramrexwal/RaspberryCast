@@ -67,6 +67,15 @@ jobs:
         with:
           name: sarif-report
           path: results.sarif
+      - name: Validate SARIF file
+        run: |
+              if [[ -f results.sarif ]]; then
+              echo "Processing sarif files: ['results.sarif']"
+              # Run your validation logic or use SARIF parsers
+              else
+              echo "SARIF file not found!"
+              exit 1
+              fi
 
 
       
